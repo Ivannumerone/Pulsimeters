@@ -1,0 +1,51 @@
+.carousel
+    padding: 108px 0
+    &__wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+    .prev
+        cursor: pointer
+        position: absolute
+        padding: 0
+        background-color: transparent
+        border: none
+        width: 45px
+        height: 50px
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+        img
+            transition: all 0.4s
+            width: 30px
+            &:hover
+                will-change: transform
+                transform: translateX(-5px)
+                transition:  all 0.4s ease
+                transition-delay: 0.1s 
+            
+    .next
+        cursor: pointer
+        position: absolute
+        padding: 0  
+        background-color: transparent
+        border: none
+        width: 45px
+        height: 50px      
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        img
+            transition: all 0.4s
+            width: 30px
+            &:hover
+                will-change: transform
+                transform: translateX(5px)
+                transition:  all 0.4s ease
+                transition-delay: 0.1s  
+    .tns-outer
+        width: 750px
+        display: block
+        margin: 0 auto
+        img
+            width: 100%
