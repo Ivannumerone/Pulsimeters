@@ -1,0 +1,146 @@
+.catalog
+    &__title
+        text-align: center
+        color: #0d0d0d
+        font-size: 30px
+        font-weight: 700
+        text-transform: uppercase
+    &__tabs
+        margin-top: 69px
+        display: flex
+        justify-content: center
+        list-style-type: none
+    &__tab
+        text-transform: uppercase
+        margin: 0 5px
+        display: block
+        border: 2px solid #d0d0d0
+        width: 220px
+        height: 50px
+        color: #6b6b6b
+        font-size: 18px
+        font-weight: 500
+        text-align: center
+        line-height: 48px
+        transform: skew(-32deg)
+        &:hover
+            box-shadow: 2px 2px 15px $main-color
+            border: none
+        cursor: pointer
+        div
+            transform: skew(32deg)
+        span
+            display: none
+            transform: skew(32deg)
+        &_active
+            color: #fff
+            background-color: $main-color
+            border: none
+    &__content
+        margin-top: 40px
+        display: none
+        justify-content: center
+        flex-wrap: wrap
+        gap: 20px 
+        &_active
+            display: flex
+    &-item
+        margin-top: 20px
+        position: relative
+        padding: 20px
+        width: 295px
+        min-height: 442px
+        border: 2px solid #e8e8e8
+        overflow: hidden
+        &__img
+            max-width: 100%
+            height: 200px
+            display: block
+            margin: 0 auto
+        &__subtitle
+            margin-top: 15px
+            color: #0D0D0D
+            text-align: center
+            font-size: 16px
+            font-weight: 700
+        &__description
+            margin-top: 15px
+            color: #0D0D0D
+            text-align: center
+            font-size: 14px
+            font-weight: 300
+        &__link
+            margin-top: 10px
+            color: $main-color
+            display: block
+            text-align: center
+            font-size: 14px
+            font-weight: 500
+            text-decoration-line: underline
+            text-transform: uppercase
+        hr
+            margin-top: 17px
+            width: 100%
+            background-color: #e8e8e8
+            color: #e8e8e8
+            border-bottom: none
+        &__footer
+            margin-top: 21px
+            align-items: center
+            display: flex
+            justify-content: space-between
+        &__price-old
+            color: #555555
+            font-size: 14px
+            font-weight: 400
+            text-decoration: line-through
+        &__price-new
+            color: #050505
+            font-size: 20px
+            font-weight: 700
+        &__wrapper
+            display: flex
+            width: calc( 200% + 20px )
+        &__main
+            width: 50%
+            transform: translateX(-120%)
+            transition: 0.5s all
+            margin-right: 20px
+            &_active
+                margin-right: 20px
+                transform: translateX(0%)
+        &__list
+            list-style-type: none
+            width: 50%
+            color: #555555
+            font-size: 15px
+            font-weight: 300
+            transform: translateX(20%)
+            transition: 0.5s all
+            padding-right: 20px
+            li
+                margin-top: 15px
+                position: relative
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 6px
+                    left: -14px
+                    background-color: $main-color
+                    min-width: 5px
+                    min-height: 5px
+                &:first-child
+                    margin-top: 0px
+            &_active
+                transform: translateX(-100%)
+        &__back
+            color: $main-color
+            font-size: 14px
+            font-weight: 500
+            text-decoration-line: underline
+            position: absolute
+            bottom:  0
+            right: 50%
+            transform: translateX(calc(50% - 20px))
+            
+            
