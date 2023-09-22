@@ -78,6 +78,36 @@ links.forEach((link) => {
   });
 });
 
+/* гугл карта gpt */
+
+const mapIframe = document.querySelector('iframe');
+
+// Добавьте событие загрузки iframe
+mapIframe.addEventListener('load', () => {
+  // Получите объект окна iframe
+  const iframeWindow = mapIframe.contentWindow;
+  // Создайте функцию для смещения маркера
+  function moveMarker() {
+    // Получите объект маркера внутри iframe (замените "markerId" на реальный идентификатор маркера)
+    const marker = iframeWindow.document.querySelector('#markerId');
+    if (marker) {
+      // Сместите маркер вниз (измените значения top и left по вашим потребностям)
+      marker.style.top = '300px'; // Например, смещение вниз на 100 пикселей
+      marker.style.left = '0'; // Оставьте left равным 0, если не хотите смещать по горизонтали
+    }
+  }
+
+  // Вызовите функцию смещения маркера при загрузке iframe
+  moveMarker();
+});
+
+
+
+
+
+
+
+
 
 
 
