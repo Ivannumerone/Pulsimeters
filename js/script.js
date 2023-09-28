@@ -78,45 +78,71 @@ links.forEach((link) => {
   });
 });
 
-/* гугл карта gpt */
 
-const mapIframe = document.querySelector('iframe');
 
-// Добавьте событие загрузки iframe
-mapIframe.addEventListener('load', () => {
-  // Получите объект окна iframe
-  const iframeWindow = mapIframe.contentWindow;
-  // Создайте функцию для смещения маркера
-  function moveMarker() {
-    // Получите объект маркера внутри iframe (замените "markerId" на реальный идентификатор маркера)
-    const marker = iframeWindow.document.querySelector('#markerId');
-    if (marker) {
-      // Сместите маркер вниз (измените значения top и left по вашим потребностям)
-      marker.style.top = '300px'; // Например, смещение вниз на 100 пикселей
-      marker.style.left = '0'; // Оставьте left равным 0, если не хотите смещать по горизонтали
-    }
+
+
+
+// Функция для показа модальных окон созданно чатом gpt
+function showModal(modalId) {
+  var overlay = document.querySelector('.overlay');
+  var modal = document.getElementById(modalId);
+
+  if (overlay && modal) {
+    overlay.style.display = 'block';
+    modal.style.display = 'block';
+  }
+}
+
+// Функция для скрытия модальных окон
+function hideModal(modalIds) {
+  var overlay = document.querySelector('.overlay');
+
+  if (overlay) {
+    overlay.style.display = 'none';
   }
 
-  // Вызовите функцию смещения маркера при загрузке iframe
-  moveMarker();
+  if (modalIds && modalIds.length > 0) {
+    modalIds.forEach(function (modalId) {
+      var modal = document.getElementById(modalId);
+
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    });
+  }
+}
+
+// Обработчик клика на элементах с атрибутом data-modal="consultation"
+var consultationElements = document.querySelectorAll('[data-modal="consultation"]');
+consultationElements.forEach(function (element) {
+  element.addEventListener('click', function () {
+    showModal('consultation');
+  });
 });
 
+// Обработчик клика на элементах с классом "modal__close"
+var closeElements = document.querySelectorAll('.modal__close');
+closeElements.forEach(function (element) {
+  element.addEventListener('click', function () {
+    hideModal(['consultation', 'thanks', 'order']);
+  });
+});
+
+// Обработчик клика на элементах с классом "button-catalog"
+var miniButtonElements = document.querySelectorAll('.button-catalog');
+miniButtonElements.forEach(function (element, index) {
+  element.addEventListener('click', function () {
+    var orderModal = document.getElementById('order');
+    var subtitleElements = document.querySelectorAll('.catalog-item__subtitle');
+    if (orderModal && subtitleElements[index]) {
+      var modalDescr = orderModal.querySelector('.modal__description');
+      modalDescr.textContent = subtitleElements[index].textContent;
+      showModal('order');
+    }
+  });
+});
+/* ***************************************************************************************************************  */
+/* Валидация формы созданно gpt */
 
 
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
